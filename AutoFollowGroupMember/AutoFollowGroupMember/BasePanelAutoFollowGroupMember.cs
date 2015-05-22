@@ -25,9 +25,16 @@ namespace AutoFollowGroupMember
 
         private void FirstUpdateComboBoxGroupMember()
         {
-            foreach (var entity in GetGroupMembersList())
+            if (EntityManager.LocalPlayer.PlayerTeam.IsInTeam)
             {
-                comboBoxGroupMember.Items.Add(entity.Name);
+                foreach (var entity in GetGroupMembersList())
+                {
+                    comboBoxGroupMember.Items.Add(entity.Name);
+                }
+            }
+            else
+            {
+                comboBoxGroupMember.Items.Clear();
             }
         }
 
@@ -35,27 +42,34 @@ namespace AutoFollowGroupMember
         {
             return
                 EntityManager.GetEntities()
-                    .Where(
-                        entity =>
-                            entity.PlayerTeam.TeamId.Equals(EntityManager.LocalPlayer.PlayerTeam.TeamId) &&
-                            entity.Name != EntityManager.LocalPlayer.Name)
-                    .ToList();
+                    .Where(entity =>entity.PlayerTeam.TeamId.Equals(EntityManager.LocalPlayer.PlayerTeam.TeamId) &&
+                        entity.Name != EntityManager.LocalPlayer.Name).ToList();
+                
         }
 
         private void UpdateComboBoxGroupMember()
         {
             var timer = new TimerWF();
             timer.Tick += timer_Tick;
-            timer.Interval = 30000;
+            timer.Interval = 5000;
             timer.Start();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            foreach (
-                var entity in GetGroupMembersList().Where(entity => !comboBoxGroupMember.Items.Contains(entity.Name)))
+            if (EntityManager.LocalPlayer.PlayerTeam.IsInTeam)
             {
-                comboBoxGroupMember.Items.Add(entity.Name);
+                foreach (
+                    var entity in
+                        GetGroupMembersList().Where(entity => !comboBoxGroupMember.Items.Contains(entity.Name)))
+                {
+                    comboBoxGroupMember.Items.Add(entity.Name);
+                }
+            }
+            else
+            {
+                comboBoxGroupMember.SelectedItem = null;
+                comboBoxGroupMember.Items.Clear();
             }
         }
 
