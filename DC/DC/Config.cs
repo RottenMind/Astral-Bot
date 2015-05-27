@@ -2,33 +2,33 @@
 using Astral.Addons;
 using Astral.Forms;
 
-namespace DCHeal
+namespace DC
 {
     public class Config : Plugin
     {
         public override void OnLoad()
         {
-            //
+            
         }
 
         public override void OnUnload()
         {
-            //
+            
         }
 
         public override void OnBotStart()
         {
-            //
+            
         }
 
         public override void OnBotStop()
         {
-            //
+            
         }
 
         public override string Name
         {
-            get { return "DC Heal"; }
+            get { return "DC Plugin"; }
         }
 
         public override string Author
@@ -43,7 +43,7 @@ namespace DCHeal
 
         public override BasePanel Settings
         {
-            get { return new BasePanelDCHeal();}
+            get { return new BasePanelDC();}
         }
     }
 }
