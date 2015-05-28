@@ -23,3 +23,28 @@ C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\AutoFollow\AutoFoll
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\AutoFollow\AutoFollow\obj\Debug\AutoFollow.pdb
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\AutoFollow\AutoFollow\obj\Debug\AutoFollow.BasePanelAutoFollow.resources
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\AutoFollow\AutoFollow\obj\Debug\AutoFollow.csproj.GenerateResource.Cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\AutoFollow.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\AutoFollow.pdb
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\Astral.exe
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\MyNW.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.Utils.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraBars.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraEditors.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\AMClient.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraNavBar.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraGrid.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\AStar.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraVerticalGrid.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraWizard.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\MyMemory.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.Data.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\PurpleSkin.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.Printing.v14.1.Core.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\AMShare.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\bin\Debug\DevExpress.XtraLayout.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\obj\Debug\AutoFollow.csprojResolveAssemblyReference.cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\obj\Debug\AutoFollow.BasePanelAutoFollow.resources
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\obj\Debug\AutoFollow.csproj.GenerateResource.Cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\obj\Debug\AutoFollow.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\AutoFollow\AutoFollow\obj\Debug\AutoFollow.pdb

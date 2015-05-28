@@ -6,26 +6,6 @@ namespace DC
 {
     public class Config : Plugin
     {
-        public override void OnLoad()
-        {
-            
-        }
-
-        public override void OnUnload()
-        {
-            
-        }
-
-        public override void OnBotStart()
-        {
-            
-        }
-
-        public override void OnBotStop()
-        {
-            
-        }
-
         public override string Name
         {
             get { return "DC Plugin"; }
@@ -43,7 +23,23 @@ namespace DC
 
         public override BasePanel Settings
         {
-            get { return new BasePanelDC();}
+            get { return new BasePanelDC(); }
+        }
+
+        public override void OnLoad()
+        {
+        }
+
+        public override void OnUnload()
+        {
+        }
+
+        public override void OnBotStart()
+        {
+        }
+
+        public override void OnBotStop()
+        {
         }
     }
 }

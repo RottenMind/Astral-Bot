@@ -11,66 +11,87 @@ namespace DC
 {
     public partial class BasePanelDC : BasePanel
     {
-        public BasePanelDC() 
+        private static bool _killHealThread;
+        private static Thread _healThread;
+
+        private static readonly Power[] HealPowersList =
+        {
+            Powers.GetPowerByDisplayName("Healing Word"),
+            Powers.GetPowerByDisplayName("Bastion of Health")
+        };
+
+        public BasePanelDC()
             : base("DC assist")
         {
             InitializeComponent();
         }
 
-        private static Timer _healTimer;
-        private static Thread _healThread;
-        private static readonly string[] HealPowerNameList = { "Healing Word", "Bastion of Health" };
-
         private static bool MyGroupStatus()
         {
             return EntityManager.LocalPlayer.PlayerTeam.IsInTeam;
         }
+
         private static IEnumerable<Entity> GetTeamMembers()
         {
-            return EntityManager.GetEntities().Where(entity => entity.PlayerTeam.TeamId.Equals(EntityManager.LocalPlayer.PlayerTeam.TeamId)).ToList();
+            return
+                EntityManager.GetEntities()
+                    .Where(entity => entity.PlayerTeam.TeamId.Equals(EntityManager.LocalPlayer.PlayerTeam.TeamId))
+                    .ToList();
         }
-        private static Power GetPower(string powerName)
+
+        private static bool CanUsePower(Power healPower)
         {
-            return Powers.GetPowerByDisplayName(powerName);
+            return healPower.IsInTray() && healPower.CanExec() && healPower.ChargesUsed < 3;
         }
-        private static bool CanUsePower(string powerName)
+
+        private static bool NeedHeal(Entity entity)
         {
-            return !GetPower(powerName).IsOnCooldown && GetPower(powerName).IsInTray() && GetPower(powerName).CanExec();
+            return entity.Character.AttribsBasic.HealthPercent < 90;
         }
-        private static bool NeedHeal(Entity teamMember)
-        {
-            return teamMember.IsValid && !teamMember.IsDead && teamMember.Character.AttribsBasic.HealthPercent < 90
-                && teamMember.Location.Distance3DFromPlayer < 80;
-        }
+
         private static void ExecHeal()
         {
             if (!MyGroupStatus()) return;
-            foreach (var teamMember in GetTeamMembers())
+            try
             {
-                var member = teamMember;
-                foreach (var healPowerName in HealPowerNameList.Where(healPowerName => NeedHeal(member)).Where(CanUsePower))
+                while (!_killHealThread)
                 {
-                    Combats.Face(teamMember.Location);
-                    Thread.Sleep(500);
-                    GetPower(healPowerName).CastOnEntity(teamMember, true);
-                    Thread.Sleep(500);
-                    GetPower(healPowerName).CastOnEntity(teamMember, false);
+                    foreach (var teamMember in GetTeamMembers())
+                    {
+                        var teamMemberLocation = teamMember.Location;
+                        var member = teamMember;
+                        foreach (var healPower in HealPowersList.Where(healPower => NeedHeal(member)).Where(CanUsePower)
+                            )
+                        {
+                            Combats.Face(teamMemberLocation);
+                            Thread.Sleep(500);
+                            Powers.ExecPower(healPower, teamMemberLocation, true);
+                            Thread.Sleep(500);
+                            Powers.ExecPower(healPower, teamMemberLocation, false);
+                            Thread.Sleep(500);
+                        }
+                    }
                 }
             }
+            catch (ThreadAbortException)
+            {
+            }
         }
+
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            _healTimer = new Timer(CastHeal, null, 1000, Timeout.Infinite);
-        }
-        private static void CastHeal(object state)
-        {
+            _killHealThread = false;
             _healThread = new Thread(ExecHeal);
-            _healTimer.Change(1000, Timeout.Infinite);
+            _healThread.Start();
+            while (!_healThread.IsAlive)
+            {
+            }
+            Thread.Sleep(1);
         }
+
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            _healTimer.Dispose();
-            _healThread.Abort();
+            _killHealThread = true;
         }
     }
 }

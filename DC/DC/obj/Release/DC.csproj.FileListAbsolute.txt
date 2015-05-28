@@ -23,3 +23,28 @@ C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\DC\DC\obj\Release\D
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\DC\DC\obj\Release\DC.pdb
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\DC\DC\obj\Release\DC.BasePanelDC.resources
 C:\Users\Michal\Documents\Visual Studio 2013\Projects\Astral\DC\DC\obj\Release\DC.csproj.GenerateResource.Cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DC.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DC.pdb
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\Astral.exe
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\MyNW.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.Utils.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraBars.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraEditors.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\AMClient.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraNavBar.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraGrid.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\AStar.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraVerticalGrid.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraWizard.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\MyMemory.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.Data.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\PurpleSkin.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.Printing.v14.1.Core.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\AMShare.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\bin\Release\DevExpress.XtraLayout.v14.1.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\obj\Release\DC.csprojResolveAssemblyReference.cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\obj\Release\DC.BasePanelDC.resources
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\obj\Release\DC.csproj.GenerateResource.Cache
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\obj\Release\DC.dll
+C:\Users\Michal\Documents\GitHub\Astral-Bot\DC\DC\obj\Release\DC.pdb

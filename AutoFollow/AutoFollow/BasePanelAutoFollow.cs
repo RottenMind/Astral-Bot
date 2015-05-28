@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Astral.Forms;
 using MyNW.Classes;
 using MyNW.Internals;
-using Timer = System.Threading.Timer;
+using Timer = System.Windows.Forms.Timer;
 
 namespace AutoFollow
 {
@@ -14,7 +14,6 @@ namespace AutoFollow
     {
         private static bool _killFollowThread;
         private Thread _followThread;
-        private Timer _followTimer;
 
         public BasePanelAutoFollow()
             : base("Auto Follow")
@@ -48,7 +47,7 @@ namespace AutoFollow
 
         private void UpdateComboBoxTeam()
         {
-            var timer = new System.Windows.Forms.Timer();
+            var timer = new Timer();
             timer.Tick += TimerOnTickAddTeamNameToComboBoxTeam;
             timer.Interval = 1000;
             timer.Start();
@@ -74,43 +73,38 @@ namespace AutoFollow
 
         private void FollowTeamMember()
         {
-            if (MyGroupStatus())
+            if (!MyGroupStatus())
             {
-                try
+                MessageBox.Show("You are not in team!", "Auto Follow Plugin");
+                _killFollowThread = true;
+            }
+            try
+            {
+                while (!_killFollowThread)
                 {
-                    while (!_killFollowThread)
+                    foreach (
+                        var teamMember in
+                            GetTeamMembers()
+                                .Where(teamMember => teamMember.Name.Equals(comboBoxTeam.SelectedItem.ToString())))
                     {
-                        foreach (
-                            var teamMember in
-                                GetTeamMembers()
-                                    .Where(teamMember => teamMember.Name.Equals(comboBoxTeam.SelectedItem.ToString())))
-                        {
-                            Movements.NavToPos(teamMember.Location, 3f);
-                            _followTimer.Change(500, Timeout.Infinite);
-                        }
+                        Movements.NavToPos(teamMember.Location, 3f);
+                        Thread.Sleep(500);
                     }
                 }
-                catch (ThreadAbortException)
-                {
-                }
-                catch (NullReferenceException)
-                {
-                    MessageBox.Show("Chose teammate!", "Auto Follow Plugin");
-                    _killFollowThread = true;
-                }
             }
-            else
-                MessageBox.Show("You are not in team!", "Auto Follow Plugin");
+            catch (ThreadAbortException)
+            {
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Chose teammate!", "Auto Follow Plugin");
+                _killFollowThread = true;
+            }
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
             _killFollowThread = false;
-            _followTimer = new Timer(Follow, null, 1000, Timeout.Infinite);
-        }
-
-        private void Follow(object state)
-        {
             _followThread = new Thread(FollowTeamMember);
             _followThread.Start();
             while (!_followThread.IsAlive)
