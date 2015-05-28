@@ -6,6 +6,7 @@ using Astral.Forms;
 using Astral.Logic.NW;
 using MyNW.Classes;
 using MyNW.Internals;
+using Movements = MyNW.Internals.Movements;
 
 namespace DC
 {
@@ -46,7 +47,7 @@ namespace DC
 
         private static bool NeedHeal(Entity entity)
         {
-            return entity.Character.AttribsBasic.HealthPercent < 90;
+            return entity.Character.AttribsBasic.HealthPercent < 90 && entity.Location.Distance3DFromPlayer < 50;
         }
 
         private static void ExecHeal()
@@ -58,17 +59,19 @@ namespace DC
                 {
                     foreach (var teamMember in GetTeamMembers())
                     {
-                        var teamMemberLocation = teamMember.Location;
                         var member = teamMember;
                         foreach (var healPower in HealPowersList.Where(healPower => NeedHeal(member)).Where(CanUsePower)
                             )
                         {
-                            Combats.Face(teamMemberLocation);
+                            Movements.NavToPos(teamMember.Location);
                             Thread.Sleep(500);
-                            Powers.ExecPower(healPower, teamMemberLocation, true);
+                            if (EntityManager.LocalPlayer.Character.CurrentTarget != teamMember)
+                                teamMember.Location.Face();
                             Thread.Sleep(500);
-                            Powers.ExecPower(healPower, teamMemberLocation, false);
+                            Powers.ExecPower(healPower, teamMember, true);
                             Thread.Sleep(500);
+                            Powers.ExecPower(healPower, teamMember, false);
+                            Thread.Sleep(2000);
                         }
                     }
                 }
